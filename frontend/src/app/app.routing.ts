@@ -9,6 +9,7 @@ import { ExpedientesComponent } from './pages/expedientes/expedientes.component'
 import { ExpedienteComponent } from './pages/expediente/expediente.component';
 import { TratasComponent } from './pages/tratas/tratas.component';
 import { SandboxComponent } from './pages/sandbox/sandbox.component';
+import { MapsComponent } from './pages/maps/maps.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'tratas', component: TratasComponent },
   { path: 'configuracion', component: ConfiguracionComponent },
   { path: 'sandbox', component: SandboxComponent },
+  { path: 'maps', component: MapsComponent },
 ];
 
 @NgModule({

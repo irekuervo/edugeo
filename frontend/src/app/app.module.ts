@@ -19,6 +19,7 @@ import { SandboxComponent } from './pages/sandbox/sandbox.component';
 import { ExpedientesComponent } from './pages/expedientes/expedientes.component';
 import { ExpedienteComponent } from './pages/expediente/expediente.component';
 import { TratasComponent } from './pages/tratas/tratas.component';
+import { MapsComponent} from './pages/maps/maps.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import { TratasComponent } from './pages/tratas/tratas.component';
     RouterModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+      apiKey: 'AIzaSyDH8Xx4arLVqizaucS1Y6JvXluD0AkdkSM'
     })
   ],
   declarations: [
@@ -42,6 +43,7 @@ import { TratasComponent } from './pages/tratas/tratas.component';
     ExpedientesComponent,
     ExpedienteComponent,
     TratasComponent,
+    MapsComponent,
 
   ],
   providers: [],

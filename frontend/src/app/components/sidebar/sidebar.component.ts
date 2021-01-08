@@ -10,11 +10,7 @@ declare interface RouteInfo {
 
 // ACA ARMAMOS DINAMICAMENTE EL MENU
 export const ROUTES: RouteInfo[] = [
-    { path: '/importaciones', title: 'Importaciones',  icon: 'import_export', class: '' },
-    { path: '/expedientes', title: 'Expedientes',  icon: 'all_inbox', class: '' },
-    { path: '/configuracion', title: 'Configuracion',  icon:'settings', class: '' },
-    { path: '/tratas', title: 'Tratas',  icon:'all_inbox', class: '' },
-    { path: '/usuarios', title: 'Usuarios',  icon:'person', class: '' },
+    { path: '/maps', title: 'Map',  icon: 'map', class: '' },
 ];
 
 @Component({
