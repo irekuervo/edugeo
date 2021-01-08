@@ -1,0 +1,86 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain ">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Configuraciones del importador</h4>
+          </div>
+          <mat-progress-bar mode="indeterminate" *ngIf="!(configuracion && estados && tratas) || guardando">
+          </mat-progress-bar>
+          <div class="example-container card-body">
+            <form *ngIf="configuracion && estados && tratas">
+              <h3>Configuración general</h3>
+              <hr>
+              <div class="row">
+                <section class="slider example-section">
+                  <mat-slide-toggle [color]="'primary'" [(ngModel)]="configuracion.importar" name="importar">Habilitar
+                    Importador</mat-slide-toggle>
+                </section>
+                <section class="slider example-section">
+                  <mat-slide-toggle [color]="'primary'" [(ngModel)]="configuracion.importarDocumentos"
+                    name="importarDocumentos">Importar Documentos</mat-slide-toggle>
+                </section>
+                <section class="slider example-section">
+                  <mat-slide-toggle [color]="'primary'" [(ngModel)]="configuracion.importarPases" name="importarPases">
+                    Importar Pases</mat-slide-toggle>
+                </section>
+              </div>
+              <div class="row">
+                <app-ui-input [(object)]="configuracion" attr="sistemaOrigen" label="Sistema Origen"></app-ui-input>
+                <app-ui-input [(object)]="configuracion" attr="usuarioConsulta" label="Usuario Consulta"></app-ui-input>
+              </div>
+              <h3>Configuración del capturador</h3>
+              <hr>
+              <div class="row">
+                <mat-form-field appearance="fill">
+                  <mat-label>Periodicidad Minutos</mat-label>
+                  <input type="number" matInput [(ngModel)]="configuracion.periodicidadMinutos" name="periodicidad">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Estados</mat-label>
+                  <mat-select [(ngModel)]="estadosSelect" multiple name="estados"
+                    (selectionChange)="selectEstados($event.value)">
+                    <mat-option *ngFor="let estado of estados" [value]="estado">{{estado}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Tratas</mat-label>
+                  <mat-select [(ngModel)]="tratasSelect" multiple name="tratas"
+                    (selectionChange)="selectTratas($event.value)">
+                    <mat-option *ngFor="let trata of tratas" [value]="trata">{{trata}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <h3>Configuración del actualizador</h3>
+              <hr>
+              <div class="row">
+                <mat-form-field appearance="fill">
+                  <mat-label>Tratas Documentos</mat-label>
+                  <mat-select [(ngModel)]="tratasDocumentosSelect" multiple name="tratasDocumentos"
+                    (selectionChange)="selectTratasDocumentos($event.value)">
+                    <mat-option *ngFor="let trata of configuracion.tratas"  [value]="trata">{{trata}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Tratas Pases</mat-label>
+                  <mat-select [(ngModel)]="tratasPasesSelect" multiple name="tratasPases"
+                    (selectionChange)="selectTratasPases($event.value)">
+                    <mat-option *ngFor="let trata of configuracion.tratas"  [value]="trata">{{trata}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <button mat-raised-button (click)="guardar()" class="btn btn-info pull-right"
+                  [disabled]="guardando">Guardar
+
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

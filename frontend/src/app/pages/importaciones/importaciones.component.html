@@ -1,0 +1,93 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">Log de Importaciones</h4>
+                        <h5 *ngIf="configuracion">Próxima ejecución {{ configuracion.proximaEjecucion | date:'short' }}
+                        </h5>
+                    </div>
+                    <mat-progress-bar mode="indeterminate" *ngIf="!(configuracion && dataSource.data)"></mat-progress-bar>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <mat-form-field>
+                                <mat-label>Filtrar</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" #input>
+                            </mat-form-field>
+                            <table mat-table [dataSource]="dataSource" matSort matSortActive="fechaInicio" matSortDirection="desc" class="mat-elevation-z8">
+                                <ng-container matColumnDef="id">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="estadoString">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.estadoString     }} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="duracionMinutos">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Duración Minutos</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.duracionMinutos}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="fechaInicio">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.fechaInicio | date:'medium'}}
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="registros">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Registros </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <ul>
+                                            <li>
+                                                Expedientes: {{element.expedientes}}
+                                            </li>
+                                            <li>
+                                                Espedientes Nuevos: {{element.expedientesNuevos}}
+                                            </li>
+                                            <li>
+                                                Pases: {{element.pases}}
+                                            </li>
+                                            <li>
+                                                Documentos: {{element.documentos}}
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="configuracion">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Configuración </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <ul>
+                                            <li>
+                                                Estados: {{element.configuracion.estados.join(', ') }}
+                                             </li>
+                                            <li>
+                                               Tratas: {{element.configuracion.tratas.join(', ') }}
+                                            </li>
+                                            <li>
+                                               Documentos: {{element.configuracion.tratasDocumentos.join(', ') }}
+                                            </li>
+                                            <li>
+                                               Pases: {{element.configuracion.tratasPases.join(', ') }}
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                                <tr class="mat-row" *matNoDataRow>
+                                    <td class="mat-cell" colspan="4">No se encontraron registros</td>
+                                </tr>
+                            </table>
+                            <mat-paginator [pageSizeOptions]="[5, 25, 100]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

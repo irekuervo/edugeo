@@ -1,0 +1,44 @@
+  
+  .card-body{
+    padding-left: 15px;
+  }
+  
+  .example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-container .mat-form-field {
+    width: 220px;
+  }
+
+  .slider{
+    width: 190px;
+  }
+  
+  .example-container form {
+    margin-bottom: 20px;
+  }
+  
+  .example-container form > * {
+    margin: 5px 0;
+  }
+  
+  .example-container .mat-radio-button {
+    margin: 0 12px;
+  }
+
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+  .example-margin {
+    margin: 0 10px;
+  }
+
+  .example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+  }

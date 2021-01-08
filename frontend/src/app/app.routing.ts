@@ -1,31 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { ImportacionesComponent } from 'app/pages/importaciones/importaciones.component';
+import { UsuariosComponent } from 'app/pages/usuarios/usuarios.component';
+import { ConfiguracionComponent } from 'app/pages/configuracion/configuracion.component';
+import { ExpedientesComponent } from './pages/expedientes/expedientes.component';
+import { ExpedienteComponent } from './pages/expediente/expediente.component';
+import { TratasComponent } from './pages/tratas/tratas.component';
+import { SandboxComponent } from './pages/sandbox/sandbox.component';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-
-const routes: Routes =[
+const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'importaciones',
     pathMatch: 'full',
-  }, {
-    path: '',
-    component: AdminLayoutComponent,
-    children: [{
-      path: '',
-      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-    }]
-  }
+  }, 
+  { path: 'importaciones', component: ImportacionesComponent },
+  { path: 'expedientes/:expedienteId', component: ExpedienteComponent },
+  { path: 'expedientes', component: ExpedientesComponent },
+  { path: 'usuarios', component: UsuariosComponent },
+  { path: 'tratas', component: TratasComponent },
+  { path: 'configuracion', component: ConfiguracionComponent },
+  { path: 'sandbox', component: SandboxComponent },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-       useHash: true
+    RouterModule.forRoot(routes, {
+      useHash: true
     })
   ],
   exports: [

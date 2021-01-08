@@ -303,16 +303,16 @@
         }
     }
 
-    &[data-color="purple"]{
+    &[data-color="primary"]{
         @include set-background-color-button($brand-primary);
     }
-    &[data-color="azure"]{
+    &[data-color="info"]{
         @include set-background-color-button($brand-info);
     }
-    &[data-color="green"]{
+    &[data-color="success"]{
         @include set-background-color-button($brand-success);
     }
-    &[data-color="orange"]{
+    &[data-color="warning"]{
         @include set-background-color-button($brand-warning);
     }
     &[data-color="danger"]{
