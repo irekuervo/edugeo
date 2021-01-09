@@ -39,13 +39,27 @@ export class MapsComponent implements OnInit {
             for (let key in this.escuelas) {
                 let escuela = this.escuelas[key];
                 let pos = new google.maps.LatLng(escuela.GeoMarker.Latitud,escuela.GeoMarker.Longitud);
+                const htmlString = 
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h1 id="firstHeading" class="firstHeading">'+escuela.Nombre+'</h1>' +
+                '<div id="bodyContent">' +
+                '<p>'+escuela.Domicilio+'</p>' +
+                '<p>'+escuela.Email+'</p>' +
+                "</div>" +
+                "</div>";
+                const infowindow = new google.maps.InfoWindow({
+                    content: htmlString,
+                  });
                 var marker = new google.maps.Marker({
                     position:pos,
-                    title: escuela.Nombre
+                    title: escuela.Nombre,
+                    map,
                 });
-
-                // To add the marker to the map, call setMap();
-                marker.setMap(map);
+                marker.addListener("click", () => {
+                    infowindow.open(map, marker);
+                  });
             }
             
         })
