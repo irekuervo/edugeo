@@ -510,9 +510,9 @@ module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\projects\material-dashboard-angular2-master\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */"mRIq");
-__webpack_require__(/*! C:\projects\material-dashboard-angular2-master\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-jit-polyfills.js */"YJXN");
-module.exports = __webpack_require__(/*! C:\projects\material-dashboard-angular2-master\src\polyfills.ts */"hN/g");
+__webpack_require__(/*! C:\projects\edugeo\frontend\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */"mRIq");
+__webpack_require__(/*! C:\projects\edugeo\frontend\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-jit-polyfills.js */"YJXN");
+module.exports = __webpack_require__(/*! C:\projects\edugeo\frontend\src\polyfills.ts */"hN/g");
 
 
 /***/ }),
