@@ -14,7 +14,7 @@ import { MapsComponent } from './pages/maps/maps.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'importaciones',
+    redirectTo: 'maps',
     pathMatch: 'full',
   }, 
   { path: 'importaciones', component: ImportacionesComponent },
